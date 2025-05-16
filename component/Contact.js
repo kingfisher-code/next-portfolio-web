@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "motion/react";
 import React, { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 const Contact = () => {
@@ -28,50 +28,85 @@ const Contact = () => {
     }
   };
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duretion: 1 }}
       id="contact"
-      className="w-full px-[12%] py-10 scroll-mt-20 bg-[url('/water-drop-background.jpg')] bg-no-repeat bg-center bg-[length:90%_auto]"
+      className="w-full px-[12%] py-10 scroll-mt-20 bg-[url('/water-drop-background.jpg')] bg-no-repeat bg-center bg-cover bg-[length:90%_auto]"
     >
-      <h4 className="text-center mb-2 text-lg font-Inter, sans-serif">
+      <motion.h4
+        initial={{ y: -20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+        className="text-center mb-2 text-lg font-Inter, sans-serif"
+      >
         Connect with me
-      </h4>
-      <h2 className="text-center text-5xl font-Inter, sans-serif">
+      </motion.h4>
+      <motion.h2
+        initial={{ y: -20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+        className="text-center text-5xl font-Inter, sans-serif"
+      >
         Get in touch
-      </h2>
-      <p className=" text-center mb-12 mt-5 mx-auto max-w-2xl font-Inter, sans-serif">
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.7, duration: 0.5 }}
+        className=" text-center mb-12 mt-5 mx-auto max-w-2xl font-Inter, sans-serif"
+      >
         I do love to hear from you! if you have any question, comments, or
         feedbacks, please use the form below.
-      </p>
-      <form onSubmit={onSubmit} className="max-w-2xl mx-auto">
+      </motion.p>
+      <motion.form
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.9, duration: 0.6 }}
+        onSubmit={onSubmit}
+        className="max-w-2xl mx-auto"
+      >
         <div className="grid lg:grid-cols-2 sm:grid-cols-1  gap-6 mt-10 mb-8">
-          <input
+          <motion.input
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ delay: 1.1, duration: 0.6 }}
             type="text"
             placeholder="Enter your name"
             required
             className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
           />
-          <input
+          <motion.input
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ delay: 1.1, duration: 0.6 }}
             type="email"
             placeholder="Enter your email"
             required
             className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
           />
         </div>
-        <textarea
+        <motion.textarea
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1.3, duration: 0.6 }}
           rows="6"
           placeholder="Enter your message"
           required
           className="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6"
-        ></textarea>
-        <button
+        ></motion.textarea>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
           type="submit"
           className="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 cursor-pointer"
         >
           Submit now <FaArrowRight className="w-4" />
-        </button>
+        </motion.button>
         <p className="mt-4">{result}</p>
-      </form>
-    </div>
+      </motion.form>
+    </motion.div>
   );
 };
 
